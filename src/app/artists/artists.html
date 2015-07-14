@@ -10,6 +10,11 @@
   </form>
 
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="artist in artists.list">{{ artist.name }}</li>
+    <li class="list-group-item clearfix" ng-repeat="artist in artists.list">
+      <h3>
+        {{ artist.name }}
+      </h3>
+      <artist-image artist="artist" class="pull-right"></artist-image>
+    </li>
   </ul>
 </div>

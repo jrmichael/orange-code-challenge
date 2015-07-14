@@ -3,7 +3,7 @@
 
   angular
     .module('musicApp', [
-      'ngAnimate', 'ngSanitize',
+      'ngAnimate', 'ngSanitize', 'ngMessages',
       'ui.router', 'ui.bootstrap',
       'musicApp.artists'
     ]);

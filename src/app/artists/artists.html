@@ -1,0 +1,15 @@
+<div id="artists" class="well">
+  <h1 class="text-center">Artists</h1>
+
+  <form class="form-inline">
+    <div class="control-group">
+      <input type="text" class="form-control" placeholder="Enter query" ng-model="artists.query"/>
+      <button class="btn btn-primary" ng-click="artists.search()">Search</button>
+    </div>
+
+  </form>
+
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="artist in artists.list">{{ artist.name }}</li>
+  </ul>
+</div>

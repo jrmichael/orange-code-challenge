@@ -30,12 +30,17 @@ describe('ArtistImageController', function () {
 
   });
 
-  it('does not fail when no images', function () {
+  it('does not fail when empty images', function () {
     scope.artist = {
       images : []
     };
 
     expect(artistImage.source()).toBeUndefined();
+  });
 
+  it('does not fail when no images', function () {
+    scope.artist = {};
+
+    expect(artistImage.source()).toBeUndefined();
   });
 });

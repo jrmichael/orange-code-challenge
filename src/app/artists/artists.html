@@ -10,7 +10,7 @@
                ng-model="artists.searchParams.q"
                placeholder="Enter query"
                required/>
-        <ng-messages for="searchForm.query.$error" ng-show="searchForm.query.$invalid">
+        <ng-messages for="searchForm.query.$error" ng-show="searchForm.query.$invalid && searchForm.query.$dirty">
           <ng-message when="required" class="text-danger">Required field</ng-message>
         </ng-messages>
       </div>
@@ -22,7 +22,7 @@
                 ng-options="type for type in artists.types"
                 required>
         </select>
-        <ng-messages for="searchForm.type.$error" ng-show="searchForm.type.$invalid">
+        <ng-messages for="searchForm.type.$error" ng-show="searchForm.type.$invalid && searchForm.type.$dirty">
           <ng-message when="required" class="text-danger">Required field</ng-message>
         </ng-messages>
       </div>
@@ -34,7 +34,7 @@
                required
                min="1" max="50"
           />
-        <ng-messages for="searchForm.limit.$error" ng-show="searchForm.limit.$invalid">
+        <ng-messages for="searchForm.limit.$error" ng-show="searchForm.limit.$invalid && searchForm.limit.$dirty">
           <ng-message when="required" class="text-danger">Required field</ng-message>
           <ng-message when="min" class="text-danger">Minimum value is 1</ng-message>
           <ng-message when="max" class="text-danger">Maximum value is 50</ng-message>
@@ -49,7 +49,7 @@
                maxlength="2"
                country-code
           />
-        <ng-messages for="searchForm.market.$error" ng-show="searchForm.market.$invalid">
+        <ng-messages for="searchForm.market.$error" ng-show="searchForm.market.$invalid && searchForm.market.$dirty">
           <ng-message when="minlength" class="text-danger">Only 2 characters allowed</ng-message>
           <ng-message when="maxlength" class="text-danger">Only 2 characters allowed</ng-message>
           <ng-message when="countryCode" class="text-danger">Not a valid country code</ng-message>

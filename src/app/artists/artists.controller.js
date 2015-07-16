@@ -2,9 +2,9 @@ angular.module('musicApp.artists')
     .controller('ArtistsController', function (artistsService, $window) {
         var vm = this;
 
-        vm.searchParams = {};
-
-        vm.types = ['artist', 'album', 'track'];
+        vm.searchParams = {
+            type: 'artist'
+        };
 
         vm.list = loadArtists();
 

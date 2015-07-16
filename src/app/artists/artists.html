@@ -1,75 +1,65 @@
 <div id="artists" class="well">
-  <h1 class="text-center">Artists</h1>
+    <h1 class="text-center">Artists</h1>
 
-  <form name="searchForm" novalidate>
-    <div class="row">
-      <div class="form-group col-md-4">
-        <label for="query" class="control-label">Query</label>
-        <input type="text" class="form-control"
-               name="query" id="query"
-               ng-model="artists.searchParams.q"
-               placeholder="Enter query"
-               required/>
-        <ng-messages for="searchForm.query.$error" ng-show="searchForm.query.$invalid && searchForm.query.$dirty">
-          <ng-message when="required" class="text-danger">Required field</ng-message>
-        </ng-messages>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="type" class="control-label">Type</label>
-        <select class="form-control"
-                name="type" id="type"
-                ng-model="artists.searchParams.type"
-                ng-options="type for type in artists.types"
-                required>
-        </select>
-        <ng-messages for="searchForm.type.$error" ng-show="searchForm.type.$invalid && searchForm.type.$dirty">
-          <ng-message when="required" class="text-danger">Required field</ng-message>
-        </ng-messages>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="limit" class="control-label">Size</label>
-        <input type="number" class="form-control"
-               name="limit" id="limit"
-               ng-model="artists.searchParams.limit"
-               required
-               min="1" max="50"
-          />
-        <ng-messages for="searchForm.limit.$error" ng-show="searchForm.limit.$invalid && searchForm.limit.$dirty">
-          <ng-message when="required" class="text-danger">Required field</ng-message>
-          <ng-message when="min" class="text-danger">Minimum value is 1</ng-message>
-          <ng-message when="max" class="text-danger">Maximum value is 50</ng-message>
-        </ng-messages>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="market" class="control-label">Market</label>
-        <input type="text" class="form-control"
-               name="market" id="market"
-               ng-model="artists.searchParams.market"
-               minlength="2"
-               maxlength="2"
-               country-code
-          />
-        <ng-messages for="searchForm.market.$error" ng-show="searchForm.market.$invalid && searchForm.market.$dirty">
-          <ng-message when="minlength" class="text-danger">Only 2 characters allowed</ng-message>
-          <ng-message when="maxlength" class="text-danger">Only 2 characters allowed</ng-message>
-          <ng-message when="countryCode" class="text-danger">Not a valid country code</ng-message>
-        </ng-messages>
-      </div>
+    <form name="searchForm" novalidate>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="query" class="control-label">Query</label>
+                <input type="text" class="form-control"
+                       name="query" id="query"
+                       ng-model="artists.searchParams.q"
+                       placeholder="Enter query"
+                       required/>
+                <ng-messages for="searchForm.query.$error" ng-show="searchForm.query.$invalid && searchForm.query.$dirty">
+                    <ng-message when="required" class="text-danger">Required field</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="limit" class="control-label">Size</label>
+                <input type="number" class="form-control"
+                       name="limit" id="limit"
+                       ng-model="artists.searchParams.limit"
+                       required
+                       min="1" max="50"
+                        />
+                <ng-messages for="searchForm.limit.$error" ng-show="searchForm.limit.$invalid && searchForm.limit.$dirty">
+                    <ng-message when="required" class="text-danger">Required field</ng-message>
+                    <ng-message when="min" class="text-danger">Minimum value is 1</ng-message>
+                    <ng-message when="max" class="text-danger">Maximum value is 50</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="market" class="control-label">Market</label>
+                <input type="text" class="form-control"
+                       name="market" id="market"
+                       ng-model="artists.searchParams.market"
+                       minlength="2"
+                       maxlength="2"
+                       country-code
+                        />
+                <ng-messages for="searchForm.market.$error" ng-show="searchForm.market.$invalid && searchForm.market.$dirty">
+                    <ng-message when="minlength" class="text-danger">Only 2 characters allowed</ng-message>
+                    <ng-message when="maxlength" class="text-danger">Only 2 characters allowed</ng-message>
+                    <ng-message when="countryCode" class="text-danger">Not a valid country code</ng-message>
+                </ng-messages>
+            </div>
 
-      <div class="form-group col-md-2">
-        <label class="control-label">&nbsp;</label>
-        <button class="btn btn-primary form-control" ng-click="artists.search(searchForm)">Search</button>
-      </div>
-    </div>
+            <div class="form-group col-md-2">
+                <label class="control-label">&nbsp;</label>
+                <button class="btn btn-primary form-control" ng-click="artists.search(searchForm)">Search</button>
+            </div>
+        </div>
 
-  </form>
+    </form>
 
-  <ul class="list-group">
-    <li class="list-group-item clearfix" ng-repeat="artist in artists.list">
-      <h3>
-        {{ artist.name }}
-      </h3>
-      <artist-image artist="artist" class="pull-right"></artist-image>
-    </li>
-  </ul>
+    <ul class="list-group">
+        <li class="list-group-item clearfix" ng-repeat="artist in artists.list">
+            <a ui-sref="artist({artistId: artist.id})">
+                <h3>
+                    {{ artist.name }}
+                </h3>
+                <artist-image artist="artist" class="pull-right"></artist-image>
+            </a>
+        </li>
+    </ul>
 </div>

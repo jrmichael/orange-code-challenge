@@ -10,16 +10,15 @@ angular.module('musicApp.artists', ['ui.router'])
             .state('artist', {
                 url: '/artists/:artistId',
                 templateUrl: '/app/artists/artist.html',
-                controller: function ($stateParams, artistsService) {
-                    var vm = this;
-
-                    artistsService.get($stateParams.artistId)
-                        .then(function (artist) {
-                            vm.details = artist;
-                        });
-
+                controller: function (details) {
+                    this.details = details
                 },
-                controllerAs: 'artist'
+                controllerAs: 'artist',
+                resolve: {
+                    details: function($stateParams, artistsService) {
+                        return artistsService.get($stateParams.artistId)
+                    }
+                }
             });
     })
 ;

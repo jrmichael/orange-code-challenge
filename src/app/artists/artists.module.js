@@ -3,13 +3,13 @@ angular.module('musicApp.artists', ['ui.router'])
         $stateProvider
             .state('artists', {
                 url: '/artists',
-                templateUrl: '/app/artists/artists.html',
+                templateUrl: 'app/artists/artists.html',
                 controller: 'ArtistsController',
                 controllerAs: 'artists'
             })
             .state('artist', {
                 url: '/artists/:artistId',
-                templateUrl: '/app/artists/artist.html',
+                templateUrl: 'app/artists/artist.html',
                 controller: function (details) {
                     this.details = details
                 },
